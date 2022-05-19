@@ -1,0 +1,102 @@
+<div>
+  <header
+    id="header"
+    style="
+      height: 600px;
+      text-align: center;
+      background-image: url('assets/con4.jpg');
+    "
+  >
+    <div class="intro text-center">
+      <div class="overlay">
+        <div class="container">
+          <div class="row">
+            <h1 style="margin-top: 260px">
+              <span class="brand bg-dark"
+                >Welcome to Construction License Registration System</span
+              >
+            </h1>
+            <!-- <p>Afar Regional Government</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Section url(images/bg-for-text.png);" -->
+  <div id="services" class="text-center text-dark mt-0">
+    <div
+      class="container bg-inverse"
+      style="color: white; width: 100%; width: 100%; height: 450px"
+    >
+      <div class="col-md-12 col-md-offset-2 section-title text-center">
+        <p class="service-text text-center text-dark mt-3">Our services</p>
+        <!-- <p class="text-center" style="margin-top: 40px;">The Awaitu mendera kebele like every other kebele has many services and function. In order to serve those that are live in kebele or those that transferred from other to that kebele, kebele give a number of services that are listed down.</p> -->
+      </div>
+      <div
+        class="row justify-content-center text-center text-dark"
+        style="margin-top: 70px"
+      >
+        <div class="col-xs-6 col-md-4 card-item mb-3">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+              class="img-circled"
+            />
+          </div>
+          <h4>Registration of Professionals</h4>
+          <p class="text-dark">
+            Description about registration of professionals
+          </p>
+          <div
+            class="btn btn-primary btn-block"
+            [routerLink]="['/form']"
+            [queryParams]="{ type: 'professional' }"
+          >
+            Apply Now
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-md-4 card-item mb-3">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+              class="img-circled"
+            />
+          </div>
+          <h4>Registration of Contractors</h4>
+          <p>Description about registration of Contractors</p>
+          <div
+            class="btn btn-primary btn-block"
+            [routerLink]="['/form']"
+            [queryParams]="{ type: 'contractor' }"
+          >
+            Apply Now
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4 card-item mb-3">
+          <div class="text-center mb-4">
+            <img
+              src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt="logo"
+              width="100"
+            />
+          </div>
+          <h4>Consultants’ performance verification</h4>
+          <p>Description about Consultants’ performance verification</p>
+          <div
+            class="btn btn-primary btn-block"
+            [routerLink]="['/form']"
+            [queryParams]="{ type: 'consultant' }"
+          >
+            Apply Now
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
