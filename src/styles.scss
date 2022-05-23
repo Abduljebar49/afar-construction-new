@@ -5,6 +5,7 @@
 
 // @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 // // formly-field-mat-multicheckbox {
 // //     display: grid;
 // //     grid-template-columns: auto auto;
@@ -35,6 +36,12 @@
   border-color: black;
   border-width: 1px;
 }
+
+.btn-custom{
+  background-color: grey;
+  color:black;
+}
+
 
 // .button-width{
 //   width:100px;

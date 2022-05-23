@@ -13,7 +13,7 @@ import { FieldArrayType } from '@ngx-formly/core';
       </div>
     </div>
     <div style="margin:30px 0;">
-      <button class="btn btn-primary" type="button" (click)="add()">
+      <button class="btn btn-secondary btn-custom ml-1" type="button" (click)="add()">
         {{ to.addText }}
       </button>
     </div>

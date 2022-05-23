@@ -19,7 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FormlyFieldTabs } from '../tabs.component';
 import { RepeatTypeComponent } from '../repitition-section.component';
 import { FileValueAccessor } from '../fire-value-accessor';
-
+import { FormlyCheckboxField} from '../custom-checkbox.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -36,6 +36,7 @@ import { FileValueAccessor } from '../fire-value-accessor';
     FormlyFieldTabs,
     FileValueAccessor,
     FormlyFieldFile,
+    FormlyCheckboxField
   ],
   imports: [
     CommonModule,
@@ -56,6 +57,11 @@ import { FileValueAccessor } from '../fire-value-accessor';
           wrappers: ['form-field'],
         },
         { name: 'repeat', component: RepeatTypeComponent },
+        {
+          name:'cus-checkbox',component: FormlyCheckboxField
+          ,
+          // wrappers: ['form-field']
+        },
         { name: 'tabs', component: FormlyFieldTabs },
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
       ],

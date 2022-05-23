@@ -20,12 +20,17 @@ export class RegFormComponent implements OnInit {
     private indexService: IndexService
   ) {
     this.type = activatedRoute.snapshot.queryParamMap.get('type') ?? '';
+    if (this.type == 'professional') {
+      this.title =
+        'Professional Registration Application Form';
+    } else if (this.type == 'contractor') {
+      this.title =
+        'Contractors Service Request Form';
+    }
   }
 
   ngOnInit(): void {
     if (this.type == 'professional') {
-      // this.title =
-      //   'Afar National Regional State Bureau of Housing Development and Construction Form';
       this.fields = [
         {
           fieldGroupClassName: 'mt-3 row',
@@ -319,7 +324,7 @@ export class RegFormComponent implements OnInit {
       ];
     } else if (this.type == 'contractor') {
       // this.title =
-      //   'Afar National Regional State Bureau of Housing Development and ConstructionContractor’s Service Request Form';
+      //   'Afar National Regional State Bureau of Housing Development and Construction Contractor’s Service Request Form';
       // console.log('inside else');
       this.fields = [
         {
@@ -539,12 +544,15 @@ export class RegFormComponent implements OnInit {
                 },
                 {
                   key: 'personalInformationConfirm',
-                  type: 'checkbox',
+                  type: 'cus-checkbox',
+                  className: 'inline pr-1',
+                  // className:'checkbox-label',
                   templateOptions: {
-                    description:
+                    label:
                       'I can confirm that the information that I have filled above is correct and I have an obligation to inform the organization immediately if I change my address',
-                      label: 'I accept the the following term',
-                      required: true,
+                    // label: 'I accept the the following term',
+                    required: true,
+                    indeterminate: false,
                   },
                 },
               ],
@@ -699,13 +707,13 @@ export class RegFormComponent implements OnInit {
                 {
                   className: 'section-label',
                   template:
-                    '<div class="mt-2 mb-2"><strong>Construction Material that is owned by the company</strong></div>',
+                    '<div class="mt-2 mb-2"><strong>Construction Equipment Owned</strong></div>',
                 },
                 {
                   key: 'constructionMaterial',
                   type: 'repeat',
                   templateOptions: {
-                    addText: 'Add Contruction Material',
+                    addText: 'Add Construction Equipment',
                   },
                   fieldArray: {
                     fieldGroupClassName: 'row',
@@ -751,7 +759,7 @@ export class RegFormComponent implements OnInit {
                 {
                   key: 'employees',
                   type: 'repeat',
-                  fieldGroupClassName:'row',
+                  fieldGroupClassName: 'row',
                   templateOptions: {
                     addText: 'Add Employees Info',
                   },
@@ -789,7 +797,7 @@ export class RegFormComponent implements OnInit {
                       {
                         key: 'numberOfEmployee',
                         type: 'input',
-                        className:"col-6",
+                        className: "col-6",
                         templateOptions: {
                           type: 'number',
                           required: true,
@@ -799,7 +807,7 @@ export class RegFormComponent implements OnInit {
                       {
                         key: 'remark',
                         type: 'input',
-                        className:"col-6",
+                        className: "col-6",
                         templateOptions: {
                           label: 'Remark',
                           required: true,
@@ -821,23 +829,23 @@ export class RegFormComponent implements OnInit {
                     // label:'Attach Company information Doc'
                   },
                 },
-                {
-                  className:'row',
-                  fieldGroup:[
-                    {
-                      type:'checkbox',
-                      className:'col-2',
-                      templateOptions:{
-                        pattern:'true',
-                      }
-                    },
-                    {
-                      className: 'section-label',
-                      template:
-                        '<span class="mt-2 mb-2">description about checkbox </span>',
-                    },    
-                  ]
-                },
+                // {
+                //   className:'row',
+                //   fieldGroup:[
+                //     {
+                //       type:'checkbox',
+                //       className:'col-2',
+                //       templateOptions:{
+                //         pattern:'true',
+                //       }
+                //     },
+                //     {
+                //       className: 'section-label',
+                //       template:
+                //         '<span class="mt-2 mb-2">description about checkbox </span>',
+                //     },    
+                //   ]
+                // },
                 {
                   className: 'section-label',
                   template:
@@ -845,13 +853,13 @@ export class RegFormComponent implements OnInit {
                 },
                 {
                   // key: 'Checkbox',
-                  type: 'checkbox',
-                  className:'col-6',
+                  type: 'cus-checkbox',
+                  className: 'col-6 checkbox-label',
                   templateOptions: {
-                    description:
+                    label:
                       'I know that the registration will not take effect and the appropriate legal action will be taken if the information provided is incorrect',
                     // description: 'In order to proceed, please accept terms',
-                    label: ' I accept the the following term',
+                    // label: ' I accept the the following term',
                     pattern: 'true',
                     required: true,
                   },
@@ -861,20 +869,38 @@ export class RegFormComponent implements OnInit {
                     },
                   },
                 },
-                {
-                  className: 'section-label',
-                  template:
-                    '<hr />',
-                },
+                // {
+                //   className: 'section-label',
+                //   template:
+                //     '<hr />',
+                // },
 
                 {
                   // key: 'Checkbox',
-                  type: 'checkbox',
-                  className:'col-6',
+                  type: 'cus-checkbox',
+                  className: 'col-6',
                   templateOptions: {
-                    description:
+                    label:
                       'I can assure with my signature that evidence provided above are correct',
-                    label: 'I accept the the following term',
+                    // label: 'I accept the the following term',
+                    pattern: 'true',
+                    required: true,
+                  },
+                  validation: {
+                    messages: {
+                      pattern: 'Please accept the terms',
+                    },
+                  },
+                },
+                {
+                  // key: 'Checkbox',
+                  type: 'cus-checkbox',
+                  className: 'col-6',
+                  templateOptions: {
+                    label:
+                      'I have an obligation to provide the necessary information when requested and inform the new address when I change my address',
+                    // description: 'In order to proceed, please accept terms',
+                    // label: 'I accept the the following term',
                     pattern: 'true',
                     required: true,
                   },
@@ -889,7 +915,6 @@ export class RegFormComponent implements OnInit {
                   template:
                     '<hr />',
                 },
-
                 {
                   className: 'section-label',
                   template:
@@ -902,30 +927,6 @@ export class RegFormComponent implements OnInit {
                   templateOptions: {
                     required: true,
                     // label:'Attach your signature'
-                  },
-                },
-                {
-                  className: 'section-label',
-                  template:
-                    '<hr />',
-                },
-
-                {
-                  // key: 'Checkbox',
-                  type: 'checkbox',
-                  className:'col-6',
-                  templateOptions: {
-                    description:
-                      'I have an obligation to provide the necessary information when requested and inform the new address when I change my address',
-                    // description: 'In order to proceed, please accept terms',
-                    label: 'I accept the the following term',
-                    pattern: 'true',
-                    required: true,
-                  },
-                  validation: {
-                    messages: {
-                      pattern: 'Please accept the terms',
-                    },
                   },
                 },
               ],

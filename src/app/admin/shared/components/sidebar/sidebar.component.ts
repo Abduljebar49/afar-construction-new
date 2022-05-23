@@ -39,9 +39,17 @@ export class SidebarComponent implements OnInit {
     {
       this.showProSubmenu = !this.showProSubmenu;
       this.isExpandedPro = !this.isExpandedPro
+      if(this.isExpandedPro){
+        this.showConSubmenu = false;
+        this.isExpandedCon = false;
+      }
     }else{
       this.showConSubmenu = !this.showConSubmenu;
-      this.isExpandedCon = !this.isExpandedCon;      
+      this.isExpandedCon = !this.isExpandedCon;    
+      if(this.isExpandedCon){
+        this.showProSubmenu = false;
+        this.isExpandedPro = false;
+      }
     }
     this.router.navigateByUrl('admin/licence-'+item);
   }
